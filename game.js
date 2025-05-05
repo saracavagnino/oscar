@@ -66,21 +66,3 @@ function checkAnswer() {
     document.getElementById('feedback').innerText = "Risposta errata, riprova!";
   }
 }
-
-// Funzione per il reset del gioco
-function resetGame() {
-  if (confirm("Sei sicuro di voler resettare il gioco? Tutti i progressi saranno persi.")) {
-    localStorage.removeItem(`progress_${squadra}`);
-    location.href = `?squadra=${squadra}`; // Torna alla pagina iniziale della squadra
-  }
-}
-
-// Mostra il pulsante di reset solo sulla pagina 11
-window.onload = function () {
-  const page = squadre[squadra][progress.currentIndex];
-  if (page === 11) {
-    document.getElementById("resetButton").style.display = "block"; // Mostra il pulsante
-  } else {
-    document.getElementById("resetButton").style.display = "none"; // Nascondi il pulsante
-  }
-};
