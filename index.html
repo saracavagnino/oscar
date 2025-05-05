@@ -11,9 +11,14 @@
 <body>
   <h1>La Notte Degli Oscar</h1>
   <div id="game" class="hidden">
+    <p id="finalMessage" class="hidden">🎉 Congratulazioni, questo è il tuo ultimo indizio. Corri a prendere l’Oscar!</p>
     <p id="hint">Indizio: </p>
-    <input type="text" id="answer" placeholder="Rispondi...">
-    <button onclick="checkAnswer()">Controlla</button>
+    
+    <div id="inputSection">
+      <input type="text" id="answer" placeholder="Rispondi...">
+      <button onclick="checkAnswer()">Controlla</button>
+    </div>
+
     <p id="feedback"></p>
     <button id="resetButton" onclick="resetGame()" style="display:none;">🔄 Reset Gioco</button>
   </div>
