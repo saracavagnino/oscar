@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Caccia al Tesoro</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 1em; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <h2 id="title">Caccia al Tesoro</h2>
+  <div id="game" class="hidden">
+    <p id="hint"></p>
+    <input id="answer" placeholder="Inserisci risposta" />
+    <button onclick="checkAnswer()">Invia</button>
+    <p id="feedback"></p>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
