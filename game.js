@@ -65,7 +65,6 @@ function checkAnswer() {
   } else {
     document.getElementById('feedback').innerText = "Risposta errata, riprova!";
   }
-}
 
 function resetGame() {
   if (confirm("Sei sicuro di voler resettare il gioco? Tutti i progressi saranno persi.")) {
