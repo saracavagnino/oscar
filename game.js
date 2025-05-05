@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const squadra = urlParams.get('squadra')?.toUpperCase();
+
 const squadre = {
   A: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
   B: [2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 11],
@@ -41,23 +42,36 @@ if (!squadra || !squadre[squadra]) {
 
 function showPage() {
   const page = squadre[squadra][progress.currentIndex];
-  document.getElementById('hint').innerText = `Indizio: ${hints[page]}`;
-  document.getElementById('answer').value = "";
-  document.getElementById('feedback').innerText = "";
+
+  if (page === 11) {
+    // Mostra messaggio finale e reset, nasconde input
+    document.getElementById('finalMessage').classList.remove('hidden');
+    document.getElementById('hint').innerText = `Indizio: ${hints[page]}`;
+    document.getElementById('inputSection').style.display = 'none';
+    document.getElementById('feedback').innerText = '';
+    document.getElementById("resetButton").style.display = "block";
+  } else {
+    // Mostra tutto normalmente
+    document.getElementById('finalMessage').classList.add('hidden');
+    document.getElementById('hint').innerText = `Indizio: ${hints[page]}`;
+    document.getElementById('answer').value = "";
+    document.getElementById('feedback').innerText = "";
+    document.getElementById('inputSection').style.display = 'block';
+    document.getElementById("resetButton").style.display = "none";
+  }
 }
 
-// Funzione per controllare la risposta
 function checkAnswer() {
   const answer = document.getElementById('answer').value.trim();
   const page = squadre[squadra][progress.currentIndex];
-  
+
   if (answer == page) {
     if (!progress.visited.includes(page)) {
       progress.visited.push(page);
     }
 
     if (progress.visited.length >= 10) {
-      progress.currentIndex = squadre[squadra].length - 1; // pagina 11
+      progress.currentIndex = squadre[squadra].length - 1; // Vai alla pagina 11
     } else {
       progress.currentIndex = (progress.currentIndex + 1) % (squadre[squadra].length - 1);
     }
@@ -69,20 +83,9 @@ function checkAnswer() {
   }
 }
 
-// Funzione per il reset del gioco
 function resetGame() {
   if (confirm("Sei sicuro di voler resettare il gioco? Tutti i progressi saranno persi.")) {
     localStorage.removeItem(`progress_${squadra}`);
-    location.href = `?squadra=${squadra}`; // Torna alla pagina iniziale della squadra
+    location.href = `?squadra=${squadra}`;
   }
 }
-
-// Mostra il pulsante di reset solo sulla pagina 11
-window.onload = function () {
-  const page = squadre[squadra][progress.currentIndex];
-  if (page === 11) {
-    document.getElementById("resetButton").style.display = "block"; // Mostra il pulsante
-  } else {
-    document.getElementById("resetButton").style.display = "none"; // Nascondi il pulsante
-  }
-};
