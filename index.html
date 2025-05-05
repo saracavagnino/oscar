@@ -2,16 +2,22 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caccia al Tesoro</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
-    input, button { padding: 10px; margin: 10px; }
-    img { max-width: 90%; height: auto; margin: 20px 0; }
+    body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 1em; }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
-  <div id="container"></div>
+
+  <h2 id="title">Caccia al Tesoro</h2>
+  <div id="game" class="hidden">
+    <p id="hint"></p>
+    <input id="answer" placeholder="Inserisci risposta" />
+    <button onclick="checkAnswer()">Invia</button>
+    <p id="feedback"></p>
+  </div>
+
   <script src="game.js"></script>
 </body>
 </html>
