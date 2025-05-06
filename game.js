@@ -1,4 +1,4 @@
-// Estrae il parametro 'squadra' dall'URL
+// Estrae il parametro 'squadra'
 const urlParams = new URLSearchParams(window.location.search);
 const squadra = urlParams.get('squadra')?.toUpperCase();
 
