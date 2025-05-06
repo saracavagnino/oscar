@@ -33,17 +33,17 @@ const images = {
 
 // Mappa indovinello
 const hints = {
-  1: "INDIZIO",
-  2: "INDIZIO",
+  1: "INDIZIO PUNTO SMAT",
+  2: "INDIZIO ANTENNA",
   3: "Fino a quante persone possono usarlo?",
   4: "Facendo il giro in senso antiorario, qual è il numero di serie del secondo lampione?",
-  5: "INDIZIO",
-  6: "INDIZIO",
-  7: "INDIZIO",
-  8: "INDIZIO",
-  9: "INDIZIO",
-  10: "INDIZIO",
-  11: "INDIZIO FINALE OSCAR"
+  5: "INDIZIO MADONNA CAVALLERO",
+  6: "INDIZIO PARCO BLU",
+  7: "INDIZIO PISTA CICLABILE",
+  8: "INDIZIO STEFANIA",
+  9: "INDIZIO ALTALENE",
+  10: "INDIZIO MADONNA PALME",
+  11: "Forza, corri e trova la statuetta per primo!"
 };
 
 //Mappa risposte corrette personalizzabili
