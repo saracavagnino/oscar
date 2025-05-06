@@ -1,116 +1,114 @@
-// Estrae il parametro 'squadra' dall'URL
-const urlParams = new URLSearchParams(window.location.search);
-const squadra = urlParams.get('squadra')?.toUpperCase();
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Notte Degli Oscar</title>
 
-// Definizione delle sequenze per ciascuna squadra
-const squadre = {
-  A: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-  B: [2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 11],
-  C: [3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 11],
-  D: [4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 11],
-  E: [5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 11],
-  F: [6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 11],
-  G: [7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 11],
-  H: [8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 11],
-  I: [9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 11],
-  J: [10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11],
-};
-
-// Mappa delle risorse (immagini/audio) da mostrare per ciascun punto
-const media = {
-  1: "img/punto_smat.jpg",
-  2: "img/antenna.jpg",
-  3: "audio/lavatoio.mp3",  // Audio per il lavatoio
-  4: "img/bocciofila.jpg",
-  5: "img/madonna_cavallero.jpg",
-  6: "img/parco_blu.jpg",
-  7: "img/pista_ciclabile.jpg",
-  8: "img/stefania.jpg",
-  9: "img/altalene.jpg",
-  10: "img/madonna_palme.jpg",
-  11: "img/oscar.jpg"
-};
-
-// Mappa degli indizi testuali
-const hints = {
-  1: "INDIZIO",
-  2: "INDIZIO",
-  3: "INDIZIO",
-  4: "Facendo il giro in senso antiorario, qual è il numero di serie del secondo lampione?",
-  5: "INDIZIO",
-  6: "INDIZIO",
-  7: "INDIZIO",
-  8: "INDIZIO",
-  9: "INDIZIO",
-  10: "INDIZIO",
-  11: "INDIZIO FINALE OSCAR"
-};
-
-// Recupera i progressi salvati o inizia da capo
-let progress = JSON.parse(localStorage.getItem(`progress_${squadra}`)) || {
-  currentIndex: 0,
-  visited: []
-};
-
-// Se la squadra non è valida, mostra errore
-if (!squadra || !squadre[squadra]) {
-  document.body.innerHTML = "<p>Squadra non valida. Aggiungi '?squadra=A' all'URL.</p>";
-} else {
-  document.getElementById('game').classList.remove('hidden');
-  showPage();
-}
-
-// Mostra il contenuto della pagina attuale (audio o immagine, indizio, input)
-function showPage() {
-  const page = squadre[squadra][progress.currentIndex];
-
-  // Mostra messaggio finale se è l'ultima pagina
-  if (page === 11) {
-    document.getElementById('finalMessage').classList.remove('hidden');
-    document.getElementById('hint').innerText = `Indizio: ${hints[page]}`;
-    // Se è il "lavatoio", carica l'audio, altrimenti l'immagine
-    if (page === 3) {
-      document.getElementById('placeImage').classList.add('hidden');
-      const audioElement = document.getElementById('placeAudio');
-      audioElement.src = media[page];
-      audioElement.classList.remove('hidden');
-      audioElement.play();
-    } else {
-      document.getElementById('placeImage').classList.remove('hidden');
-      document.getElementById('placeImage').src = media[page];
-      document.getElementById('placeAudio').classList.add('hidden');
-    }
-    document.getElementById('inputSection').style.display = 'none';
-    document.getElementById('feedback').innerText = '';
-    document.getElementById("resetButton").style.display = "block";
-  } else {
-    // Altrimenti mostra l'indizio e il media (immagine o audio)
-    document.getElementById('finalMessage').classList.add('hidden');
-    document.getElementById('hint').innerText = `${hints[page]}`;
-    // Se è il "lavatoio", carica l'audio, altrimenti l'immagine
-    if (page === 3) {
-      document.getElementById('placeImage').classList.add('hidden');
-      const audioElement = document.getElementById('placeAudio');
-      audioElement.src = media[page];
-      audioElement.classList.remove('hidden');
-      audioElement.play();
-    } else {
-      document.getElementById('placeImage').classList.remove('hidden');
-      document.getElementById('placeImage').src = media[page];
-      document.getElementById('placeAudio').classList.add('hidden');
-    }
-    document.getElementById('answer').value = "";
-    document.getElementById('feedback').innerText = "";
-    document.getElementById('inputSection').style.display = 'block';
-    document.getElementById("resetButton").style.display = "none";
+  <!-- STILE RESPONSIVE -->
+  <style>
+  * {
+    box-sizing: border-box; /* Consente una gestione prevedibile di padding/margin */
   }
-}
 
-// Verifica la risposta inserita
-function checkAnswer() {
-  const answer = document.getElementById('answer').value.trim();
-  const page = squadre[squadra][progress.currentIndex];
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fefefe;
+    line-height: 1.6; /* Altezza riga aumentata per leggibilità */
+  }
 
-  if (answer == page) {
-    if (!progress.visited.includes(page)) {
-      progress.vis
+  h1 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    background-color: #2b2b2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  #feedback {
+    font-weight: bold;
+    color: red;
+  }
+
+  #resetButton {
+    background-color: #ccc;
+    color: black;
+  }
+  </style>
+</head>
+
+<body>
+  <h1>La Notte Degli Oscar</h1>
+
+  <div id="game" class="hidden">
+    <!-- Messaggio finale -->
+    <p id="finalMessage" class="hidden">🎉 Congratulazioni, questo è il tuo ultimo indizio. Corri a prendere l’Oscar!</p>
+
+    <!-- Luogo da raggiungere -->
+    <p><strong>Luogo da raggiungere:</strong></p>
+    <!-- Aggiunto un elemento per l'audio -->
+    <audio id="placeAudio" controls class="hidden">
+      <source src="" type="audio/mpeg">
+      Il tuo browser non supporta il tag audio.
+    </audio>
+
+    <!-- Indizio testuale -->
+    <p id="hint"><strong>Indizio da risolvere:</strong></p>
+
+    <!-- Risposta da inserire -->
+    <div id="inputSection">
+      <p><strong>Risposta da inserire:</strong></p>
+      <input type="text" id="answer" placeholder="Rispondi...">
+      <button onclick="checkAnswer()">Controlla</button>
+    </div>
+
+    <!-- Feedback della risposta -->
+    <p id="feedback"></p>
+
+    <!-- Bottone reset -->
+    <button id="resetButton" onclick="resetGame()" style="display:none;">🔄 Reset Gioco</button>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
