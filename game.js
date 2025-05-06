@@ -20,7 +20,7 @@ const squadre = {
 const images = {
   1: "img/punto_smat.jpg",
   2: "img/antenna.jpg",
-  3: "audio/lavatorio.mp3", // audio al posto dell’immagine
+  3: "audio/lavatoio.mp3", // audio al posto dell’immagine
   4: "img/bocciofila.jpg",
   5: "img/madonna_cavallero.jpg",
   6: "img/parco_blu.jpg",
