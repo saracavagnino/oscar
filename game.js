@@ -16,7 +16,7 @@ const squadre = {
   J: [10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11],
 };
 
-// Mappa immagini
+// Mappa media indizi luogo
 const images = {
   1: "img/punto_smat.jpg",
   2: "img/antenna.jpg",
@@ -31,7 +31,7 @@ const images = {
   11: "img/oscar.jpg"
 };
 
-// Mappa indizi
+// Mappa indovinello
 const hints = {
   1: "INDIZIO",
   2: "INDIZIO",
@@ -44,6 +44,20 @@ const hints = {
   9: "INDIZIO",
   10: "INDIZIO",
   11: "INDIZIO FINALE OSCAR"
+};
+
+//Mappa risposte corrette personalizzabili
+const answers = {
+  1: "1",
+  2: "2",
+  3: "10", // numero posti lavatoio
+  4: "75287", //numero lampione
+  5: "5",
+  6: "6",
+  7: "7",
+  8: "8",
+  9: "9",
+  10: "10",
 };
 
 // Caricamento o reset
@@ -102,7 +116,7 @@ function checkAnswer() {
   const answer = document.getElementById('answer').value.trim();
   const page = squadre[squadra][progress.currentIndex];
 
-  if (answer == page) {
+  if (answer.toLowerCase() === answers[page]?.toLowerCase()) {
     if (!progress.visited.includes(page)) {
       progress.visited.push(page);
     }
