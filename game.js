@@ -38,7 +38,7 @@ const hints = {
   1: "Cerca dove l’acqua si incrocia sotto la città.",
   2: "Trova il punto più alto da cui trasmettere.",
   3: "Dove un tempo si lavavano i panni…",
-  4: "Facendo il giro in senso antiorario qual è il numero di serie del secondo lampione?",
+  4: "Facendo il giro in senso antiorario, qual è il numero di serie del secondo lampione?",
   5: "Un’edicola votiva nel verde.",
   6: "Il parco con il colore del cielo.",
   7: "Un percorso per biciclette.",
