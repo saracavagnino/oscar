@@ -74,7 +74,7 @@
     background-color: #ccc;
     color: black;
   }
-  </style>
+</style>
 </head>
 
 <body>
@@ -84,13 +84,17 @@
     <!-- Messaggio finale -->
     <p id="finalMessage" class="hidden">🎉 Congratulazioni, questo è il tuo ultimo indizio. Corri a prendere l’Oscar!</p>
 
-    <!-- Luogo da raggiungere -->
+    <!-- Immagine del luogo da raggiungere -->
     <p><strong>Luogo da raggiungere:</strong></p>
-    <!-- Aggiunto un elemento per l'audio -->
-    <audio id="placeAudio" controls class="hidden">
-      <source src="" type="audio/mpeg">
-      Il tuo browser non supporta il tag audio.
-    </audio>
+    <!-- Media del luogo da raggiungere -->
+<div id="mediaContainer">
+  <img id="placeImage" src="" alt="Luogo" />
+  <audio id="placeAudio" controls class="hidden">
+    <source src="" type="audio/mpeg">
+    Il tuo browser non supporta l'audio.
+  </audio>
+</div>
+
 
     <!-- Indizio testuale -->
     <p id="hint"><strong>Indizio da risolvere:</strong></p>
