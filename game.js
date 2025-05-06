@@ -16,13 +16,11 @@ const squadre = {
   J: [10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11],
 };
 
-
-
-// Mappa delle immagini da mostrare per ciascun punto
-const images = {
+// Mappa delle risorse (immagini/audio) da mostrare per ciascun punto
+const media = {
   1: "img/punto_smat.jpg",
   2: "img/antenna.jpg",
-  3: "img/lavatoio.jpg",
+  3: "audio/lavatoio.mp3",  // Audio per il lavatoio
   4: "img/bocciofila.jpg",
   5: "img/madonna_cavallero.jpg",
   6: "img/parco_blu.jpg",
@@ -62,7 +60,7 @@ if (!squadra || !squadre[squadra]) {
   showPage();
 }
 
-// Mostra il contenuto della pagina attuale (immagine, indizio, input)
+// Mostra il contenuto della pagina attuale (audio o immagine, indizio, input)
 function showPage() {
   const page = squadre[squadra][progress.currentIndex];
 
@@ -70,15 +68,37 @@ function showPage() {
   if (page === 11) {
     document.getElementById('finalMessage').classList.remove('hidden');
     document.getElementById('hint').innerText = `Indizio: ${hints[page]}`;
-    document.getElementById('placeImage').src = images[page];
+    // Se è il "lavatoio", carica l'audio, altrimenti l'immagine
+    if (page === 3) {
+      document.getElementById('placeImage').classList.add('hidden');
+      const audioElement = document.getElementById('placeAudio');
+      audioElement.src = media[page];
+      audioElement.classList.remove('hidden');
+      audioElement.play();
+    } else {
+      document.getElementById('placeImage').classList.remove('hidden');
+      document.getElementById('placeImage').src = media[page];
+      document.getElementById('placeAudio').classList.add('hidden');
+    }
     document.getElementById('inputSection').style.display = 'none';
     document.getElementById('feedback').innerText = '';
     document.getElementById("resetButton").style.display = "block";
   } else {
-    // Altrimenti mostra l'indizio e l'immagine
+    // Altrimenti mostra l'indizio e il media (immagine o audio)
     document.getElementById('finalMessage').classList.add('hidden');
     document.getElementById('hint').innerText = `${hints[page]}`;
-    document.getElementById('placeImage').src = images[page];
+    // Se è il "lavatoio", carica l'audio, altrimenti l'immagine
+    if (page === 3) {
+      document.getElementById('placeImage').classList.add('hidden');
+      const audioElement = document.getElementById('placeAudio');
+      audioElement.src = media[page];
+      audioElement.classList.remove('hidden');
+      audioElement.play();
+    } else {
+      document.getElementById('placeImage').classList.remove('hidden');
+      document.getElementById('placeImage').src = media[page];
+      document.getElementById('placeAudio').classList.add('hidden');
+    }
     document.getElementById('answer').value = "";
     document.getElementById('feedback').innerText = "";
     document.getElementById('inputSection').style.display = 'block';
@@ -93,27 +113,4 @@ function checkAnswer() {
 
   if (answer == page) {
     if (!progress.visited.includes(page)) {
-      progress.visited.push(page);
-    }
-
-    // Se sono stati visitati 10 punti, vai all'11 (Oscar)
-    if (progress.visited.length >= 10) {
-      progress.currentIndex = squadre[squadra].length - 1;
-    } else {
-      progress.currentIndex = (progress.currentIndex + 1) % (squadre[squadra].length - 1);
-    }
-
-    localStorage.setItem(`progress_${squadra}`, JSON.stringify(progress));
-    showPage();
-  } else {
-    document.getElementById('feedback').innerText = "Risposta errata, riprova!";
-  }
-}
-
-// Resetta il gioco
-function resetGame() {
-  if (confirm("Sei sicuro di voler resettare il gioco? Tutti i progressi saranno persi.")) {
-    localStorage.removeItem(`progress_${squadra}`);
-    location.href = `?squadra=${squadra}`;
-  }
-}
+      progress.vis
