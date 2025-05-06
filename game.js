@@ -20,7 +20,7 @@ const squadre = {
 const images = {
   1: "img/punto_smat.jpg",
   2: "img/antenna.jpg",
-  3: "", // audio al posto dell’immagine
+  3: "audio/lavatorio.mp3", // audio al posto dell’immagine
   4: "img/bocciofila.jpg",
   5: "img/madonna_cavallero.jpg",
   6: "img/parco_blu.jpg",
@@ -35,7 +35,7 @@ const images = {
 const hints = {
   1: "INDIZIO",
   2: "INDIZIO",
-  3: "INDIZIO AUDIO",
+  3: "Fino a quante persone possono usarlo?",
   4: "Facendo il giro in senso antiorario, qual è il numero di serie del secondo lampione?",
   5: "INDIZIO",
   6: "INDIZIO",
