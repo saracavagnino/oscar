@@ -15,17 +15,17 @@ const squadre = {
 };
 
 const hints = {
-  1: "PUNTO SMAT",
-  2: "ANTENNA",
-  3: "LAVATOIO",
-  4: "BOCCIOFILA",
-  5: "MADONNA CAVALLERO",
-  6: "PARCO BLU",
-  7: "CICLABILE",
-  8: "STEFANIA",
-  9: "ALTALENE",
-  10: "MADONNA PALME",
-  11: "OSCAR"
+  1: "IMMAGINE PUNTO SMAT",
+  2: "IMMAGINE ANTENNA",
+  3: "IMMAGINE LAVATOIO",
+  4: "IMMAGINE BOCCIOFILA",
+  5: "IMMAGINE MADONNA CAVALLERO",
+  6: "IMMAGINE PARCO BLU",
+  7: "IMMAGINE CICLABILE",
+  8: "IMMAGINE STEFANIA",
+  9: "IMMAGINE ALTALENE",
+  10: "IMMAGINE MADONNA PALME",
+  11: "IMMAGINE OSCAR"
 };
 
 let progress = JSON.parse(localStorage.getItem(`progress_${squadra}`)) || {
