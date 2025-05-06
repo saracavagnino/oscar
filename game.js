@@ -43,7 +43,7 @@ const hints = {
   8: "INDIZIO STEFANIA",
   9: "INDIZIO ALTALENE",
   10: "INDIZIO MADONNA PALME",
-  11: "Forza, corri e trova la statuetta per primo!"
+  11: "Corri e trova la statuetta per primo!"
 };
 
 //Mappa risposte corrette personalizzabili
@@ -83,7 +83,7 @@ function showPage() {
 
   if (page === 11) {
     document.getElementById('finalMessage').classList.remove('hidden');
-    document.getElementById('hint').innerText = `${hints[page]}`;
+    document.getElementById('hint').innerText = `Forza! ${hints[page]}`;
     placeImage.classList.remove('hidden');
     placeAudio.classList.add('hidden');
     placeImage.src = images[page];
