@@ -6,20 +6,33 @@
   <title>La Notte Degli Oscar</title>
   <style>
     .hidden { display: none; }
+    img { max-width: 100%; height: auto; margin: 10px 0; }
   </style>
 </head>
 <body>
   <h1>La Notte Degli Oscar</h1>
   <div id="game" class="hidden">
+    <!-- Messaggio finale -->
     <p id="finalMessage" class="hidden">🎉 Congratulazioni, questo è il tuo ultimo indizio. Corri a prendere l’Oscar!</p>
-    <p id="hint">Indizio: </p>
-    
+
+    <!-- Immagine del luogo da raggiungere -->
+    <p><strong>Luogo da raggiungere:</strong></p>
+    <img id="placeImage" src="" alt="Luogo" />
+
+    <!-- Indizio testuale -->
+    <p id="hint"><strong>Indizio da risolvere:</strong></p>
+
+    <!-- Risposta da inserire -->
     <div id="inputSection">
+      <p><strong>Risposta da inserire:</strong></p>
       <input type="text" id="answer" placeholder="Rispondi...">
       <button onclick="checkAnswer()">Controlla</button>
     </div>
 
+    <!-- Feedback della risposta -->
     <p id="feedback"></p>
+
+    <!-- Bottone reset -->
     <button id="resetButton" onclick="resetGame()" style="display:none;">🔄 Reset Gioco</button>
   </div>
 
