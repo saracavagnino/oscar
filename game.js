@@ -48,16 +48,16 @@ const hints = {
 
 //Mappa risposte corrette personalizzabili
 const answers = {
-  1: "1",
-  2: "2",
+  1: "1", //punto smat
+  2: "2", //antenna
   3: "10", // numero posti lavatoio
   4: "75287", //numero lampione
-  5: "5",
-  6: "6",
-  7: "7",
-  8: "8",
-  9: "9",
-  10: "10",
+  5: "5", //cavallero
+  6: "6", //parco blu
+  7: "7", //bici
+  8: "8", //stefi
+  9: "9", //altalene
+  10: "10", //palme
 };
 
 // Caricamento o reset
