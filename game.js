@@ -83,7 +83,7 @@ function showPage() {
 
   if (page === 11) {
     document.getElementById('finalMessage').classList.remove('hidden');
-    document.getElementById('hint').innerText = `Indizio: ${hints[page]}`;
+    document.getElementById('hint').innerText = `${hints[page]}`;
     placeImage.classList.remove('hidden');
     placeAudio.classList.add('hidden');
     placeImage.src = images[page];
