@@ -35,17 +35,17 @@ const images = {
 
 // Mappa degli indizi testuali
 const hints = {
-  1: "Cerca dove l’acqua si incrocia sotto la città.",
-  2: "Trova il punto più alto da cui trasmettere.",
-  3: "Dove un tempo si lavavano i panni…",
+  1: "INDIZIO",
+  2: "INDIZIO",
+  3: "INDIZIO",
   4: "Facendo il giro in senso antiorario, qual è il numero di serie del secondo lampione?",
-  5: "Un’edicola votiva nel verde.",
-  6: "Il parco con il colore del cielo.",
-  7: "Un percorso per biciclette.",
-  8: "Una persona importante da cercare.",
-  9: "Dondola nel vento con i bambini.",
-  10: "Un’altra Madonna, tra le palme.",
-  11: "OSCAR"
+  5: "INDIZIO",
+  6: "INDIZIO",
+  7: "INDIZIO",
+  8: "INDIZIO",
+  9: "INDIZIO",
+  10: "INDIZIO",
+  11: "INDIZIO FINALE OSCAR"
 };
 
 // Recupera i progressi salvati o inizia da capo
