@@ -33,7 +33,7 @@ const images = {
 
 // Mappa indovinello
 const hints = {
-  1: "INDIZIO PUNTO SMAT",
+  1: "Quante farfalle ci sono sui lati delle porte?",
   2: "Qual è il suo numero civico?",
   3: "Fino a quante persone possono usarlo?",
   4: "Facendo il giro in senso antiorario, qual è il numero di serie del secondo lampione?",
@@ -48,7 +48,7 @@ const hints = {
 
 //Mappa risposte corrette personalizzabili
 const answers = {
-  1: "1", //punto smat
+  1: "14", //punto smat
   2: "2 BIS", //antenna
   3: "10", // numero posti lavatoio
   4: "75287", //numero lampione
