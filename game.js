@@ -34,7 +34,7 @@ const images = {
 // Mappa indovinello
 const hints = {
   1: "INDIZIO PUNTO SMAT",
-  2: "INDIZIO ANTENNA",
+  2: "Qual è il suo numero civico?",
   3: "Fino a quante persone possono usarlo?",
   4: "Facendo il giro in senso antiorario, qual è il numero di serie del secondo lampione?",
   5: "INDIZIO MADONNA CAVALLERO",
@@ -49,7 +49,7 @@ const hints = {
 //Mappa risposte corrette personalizzabili
 const answers = {
   1: "1", //punto smat
-  2: "2", //antenna
+  2: "2 BIS", //antenna
   3: "10", // numero posti lavatoio
   4: "75287", //numero lampione
   5: "5", //cavallero
